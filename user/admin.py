@@ -10,5 +10,5 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(models.Auth)
 class AuthAdmin(admin.ModelAdmin):
-    list_display = ['phone_number', 'auth_number', 'created_at']
+    list_display = ['pk', 'phone_number', 'auth_number', 'created_at']
     list_display_links = ['phone_number']

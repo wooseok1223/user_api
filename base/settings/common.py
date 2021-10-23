@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'base.urls'
@@ -73,7 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'base.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -110,13 +109,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -126,5 +125,6 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK = {
-    "EXCEPTION_HANDLER": "base.common.handler.exception_handler"
+    "DEFAULT_AUTHENTICATION_CLASSES": ["base.common.backends.Token"],
+    "EXCEPTION_HANDLER": "base.common.handler.exception_handler",
 }

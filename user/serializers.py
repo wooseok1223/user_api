@@ -34,13 +34,45 @@ class SignupSerializer(serializers.ModelSerializer):
 
 
 class AuthSerializer(serializers.ModelSerializer):
+    auth_number = serializers.IntegerField(required=False)
 
     class Meta:
         model = models.Auth
         fields = [
+            'pk',
             'phone_number',
             'auth_number',
             'created_at',
             'modified_at',
             'password_modified_at'
+        ]
+
+
+class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(read_only=True)
+
+    class Meta:
+        model = models.User
+        fields = [
+            'email',
+            'nickname',
+            'password',
+            'username',
+            'phone_number',
+            'created_at',
+            'modified_at'
+        ]
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.User
+        fields = [
+            'email',
+            'nickname',
+            'username',
+            'phone_number',
+            'created_at',
+            'modified_at'
         ]
