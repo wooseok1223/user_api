@@ -18,6 +18,10 @@ DB : Mysql
 #### 회원가입
 - 토큰 param(auth_number)을 받아야 회원가입가능 (유효시간 5분)
 
+#### api-document 적용
+아래의 로컬 구동 후 접속 가능
+- http://localhost:8000/swagger/
+
 ## 2 로컬테스트 환경 구성
 docker-compose를 이용하여 mysql, api-server를 띄울수 있게 구성
 
@@ -44,6 +48,7 @@ make local 명령어를 통해서 서버 실행
 ![result](base/img/docker.png)
 
 
+## 3-1 api 기능
 
 
 
