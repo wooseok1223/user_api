@@ -18,7 +18,7 @@ class User(BaseModel):
     phone_number = models.CharField(unique=True, max_length=13, blank=True, null=True)
 
     class Meta:
-        db_table = "user"
+        db_table = "tb_user"
         app_label = "user"
 
     @classmethod
@@ -55,7 +55,7 @@ class Auth(BaseModel):
     password_modified_at = models.DateTimeField(blank=True, null=True, verbose_name="비밀번호 수정일")
 
     class Meta:
-        db_table = 'user_auth'
+        db_table = 'tb_auth'
         app_label = "user"
 
     def save(self, *args, **kwargs):

@@ -1,0 +1,24 @@
+version: "3.2"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_service
+    env_file:
+      - ./.env
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+    ports:
+        - "3306:3306"
+
+  server:
+    build: ./
+    container_name: user_api
+    volumes:
+      - ./app:/app
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    ports:
+      - '8000:8000'
+    command: python manage.py runserver 0:8000
