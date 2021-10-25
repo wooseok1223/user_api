@@ -10,3 +10,4 @@ local:
 	@docker-compose up --build --d server
 	@docker-compose exec server python manage.py migrate
 	@docker-compose exec server python manage.py test
+	@echo "테스트 코드 실행 완료"
