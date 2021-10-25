@@ -1,5 +1,3 @@
-from random import randint
-
 from rest_framework import serializers
 from . import models
 from django.contrib.auth.hashers import make_password
@@ -23,6 +21,7 @@ class SignupSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.User
         fields = [
+            'user_index',
             'email',
             'nickname',
             'password',

@@ -9,8 +9,4 @@ local:
 	@sleep 10
 	@docker-compose up --build --d server
 	@docker-compose exec server python manage.py migrate
-
-
-test:
-	@sleep 4
-	@echo "gigigigi"
+	@docker-compose exec server python manage.py test

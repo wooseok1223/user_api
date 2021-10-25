@@ -47,7 +47,7 @@ class AuthViewSet(ModelViewSet):
         return serializer.data
 
     @api_handler
-    @action(detail=False, methods=["put"], url_path="change")
+    @action(detail=False, methods=["put"], url_path="change", url_name='change')
     def auth_changed(self, request):
         phone_number = request.data.get("phone_number", None)
 
@@ -57,7 +57,7 @@ class AuthViewSet(ModelViewSet):
 
         auth.save()
 
-        return {}
+        return {"auth_number": auth.auth_number}
 
 
 class SignView(generics.CreateAPIView):
@@ -78,12 +78,9 @@ class SignView(generics.CreateAPIView):
         return serializer.data
 
 
-class LoginView(generics.ListCreateAPIView):
+class LoginView(generics.CreateAPIView):
+    model = models.User
     serializer_class = serializers.LoginSerializer
-
-    def get_queryset(self):
-        queryset = models.User.objects.all()
-        return queryset
 
     @api_handler
     def create(self, request, *args, **kwargs):
@@ -156,7 +153,10 @@ class PwdChangedView(generics.UpdateAPIView):
             send_param = {
                 "phone_number": phone_number,
                 "auth_number": auth_number,
-                "password": make_password(password)
+                "password": make_password(password),
+                "username": instance.username,
+                "nickname": instance.nickname,
+                "email": instance.email
             }
 
             serializer = self.get_serializer(instance, data=send_param, partial=partial)
