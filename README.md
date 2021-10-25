@@ -22,10 +22,23 @@ DB : Mysql
 아래의 로컬 구동 후 접속 가능
 - http://localhost:8000/swagger/
 
+#### tdd 적용
+- python manage.py test
+
 ## 2 로컬테스트 환경 구성
+.env
+- ENV=dev mysql(docker db server)
+- ENV=local sqlite
+
 docker-compose를 이용하여 mysql, api-server를 띄울수 있게 구성
 
-<h3>로컬에 도커가 설치되어있어야한다.</h3>
+#### 로컬에 도커가 설치되어있어야한다.
+
+도커로 띄우기 싫다면
+- .env의 ENV=local로 변경
+- python manage.py migrate
+- python manage.py runserver
+
 
 ## 2-1 환경변수
 django-dotenv 외부 라이브러리 이용중
