@@ -26,6 +26,15 @@ DB : Mysql
 #### tdd 적용
 - python manage.py test
 
+#### admin 적용
+##### 도커 사용 x
+- python manage.py createsuperuser로 유저생성후 
+- 유저네임으로 로그인
+##### 도커 사용 할때
+- docker-compose exec -it server bash 접근 후
+- python manage.py createsuperuser로 유저생성후 
+- 유저네임으로 로그인
+
 ## 2 로컬테스트 환경 구성
 .env
 - USE_DOCKER=YES   mysql(docker db server)
