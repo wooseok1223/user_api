@@ -7,7 +7,7 @@ from django.conf.urls import url
 
 schema_url_patterns = [path("user/", include("user.urls"), name="user")]
 schema_view = get_schema_view(
-    openapi.Info(title="Django API", default_version='v1', terms_of_service="https://www.google.com/policies/terms/", ),
+    openapi.Info(title="User api of wooseok", default_version='v1', terms_of_service="https://www.google.com/policies/terms/", ),
     public=True, permission_classes=(AllowAny,), patterns=schema_url_patterns, )
 
 urlpatterns = [

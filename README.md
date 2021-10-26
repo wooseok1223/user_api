@@ -20,6 +20,7 @@ DB : Mysql
 
 #### api-document 적용
 아래의 로컬 구동 후 접속 가능
+- http://localhost:8000/redoc/
 - http://localhost:8000/swagger/
 
 #### tdd 적용
@@ -27,15 +28,15 @@ DB : Mysql
 
 ## 2 로컬테스트 환경 구성
 .env
-- ENV=dev mysql(docker db server)
-- ENV=local sqlite
+- USE_DOCKER=YES   mysql(docker db server)
+- USE_DOCKER=NO    sqlite
 
 docker-compose를 이용하여 mysql, api-server를 띄울수 있게 구성
 
 #### 로컬에 도커가 설치되어있어야한다.
 
 도커로 띄우기 싫다면
-- .env의 ENV=local로 변경
+- .env의 USE_DOCKER=NO로 변경
 - python manage.py migrate
 - python manage.py runserver
 
@@ -65,8 +66,8 @@ make local 명령어를 통해서 서버 실행
 
 ## 3-1 api 기능
 api 문서 참조
+- http://localhost:8000/redoc/
 - http://localhost:8000/swagger/ 
-
 
 ## 4 tdd
 api 기능별로 테스트코드 작성

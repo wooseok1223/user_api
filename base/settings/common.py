@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'base.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-if os.environ["ENV"] == "local":
+if os.environ["USE_DOCKER"] == "NO":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -86,7 +86,7 @@ if os.environ["ENV"] == "local":
         }
     }
 
-if os.environ["ENV"] == "dev":
+if os.environ["USE_DOCKER"] == "YES":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
